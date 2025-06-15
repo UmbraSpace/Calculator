@@ -35,3 +35,13 @@ let operator;
 let num1;
 
 let num2;
+
+let digitButtons = document.querySelectorAll(".digit");
+
+let display = document.querySelector("#display");
+
+digitButtons.forEach((digitButton) => {
+    digitButton.addEventListener("click", () => {
+        display.textContent += digitButton.textContent;
+    })
+})
