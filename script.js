@@ -36,9 +36,16 @@ let num1;
 
 let num2;
 
+let display = document.querySelector("#display");
+
+let clearButton = document.querySelector("#clear");
+
 let digitButtons = document.querySelectorAll(".digit");
 
-let display = document.querySelector("#display");
+
+clearButton.addEventListener("click", () => {
+    display.textContent = "";
+})
 
 digitButtons.forEach((digitButton) => {
     digitButton.addEventListener("click", () => {
