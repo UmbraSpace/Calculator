@@ -21,6 +21,12 @@ function updateDisplay(content, add = 0){
         display.textContent = content;
 }
 
+function clear(){
+    num1 = null;
+    num2 = null;
+    operator = "";
+}
+
 function operate(operator, num1, num2){
     switch (operator){
         case "+":
@@ -51,14 +57,20 @@ let operatorButtons = document.querySelectorAll(".operator");
 
 
 clearButton.addEventListener("click", () => {
-    operator = "";
-    num1 = null;
-    num2 = null;
+    clear();
     
     updateDisplay("");
 })
 
-
+equalButton.addEventListener("click", () => {
+    if(num1 && display.textContent && !evaluation){
+        num2 = Number(display.textContent);
+        updateDisplay(operate(operator, num1, num2));
+        evaluation = true;
+        clear();
+        
+    }
+})
 
 digitButtons.forEach((digitButton) => {
     digitButton.addEventListener("click", () => {
