@@ -78,11 +78,14 @@ equalButton.addEventListener("click", () => {
 
 digitButtons.forEach((digitButton) => {
     digitButton.addEventListener("click", () => {
-        if (!evaluation)
-             updateDisplay(digitButton.textContent, 1);
-        else
+        if (!evaluation){
+            if(display.textContent.length < 9)
+                updateDisplay(digitButton.textContent, 1);
+        }
+        else {
             updateDisplay(digitButton.textContent);
             evaluation = false;
+        }
     })
 })
 
