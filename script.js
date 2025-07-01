@@ -28,19 +28,28 @@ function clear(){
 }
 
 function operate(operator, num1, num2){
+    let result;
     switch (operator){
         case "+":
-            return add(num1, num2);
+            result =  add(num1, num2);
+            break;
 
         case "-":
-            return subtract(num1, num2);
+            result =  subtract(num1, num2);
+            break;
 
         case "*":
-            return multiply(num1, num2);
+            result = multiply(num1, num2);
+            break;
 
         case "/":
-            return divide(num1, num2);
+            result = divide(num1, num2);
     }
+    result = result.toString();
+    if (result.length > 9){
+        return Number(result).toFixed(8);
+    }
+    return Number(result);
 }
 
 let operator;
